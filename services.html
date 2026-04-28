@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Services - Foundbly Local SEO + AI Visibility</title>
+<meta name="description" content="Two plans. SEO Lite at $1,500 a month for the foundation. SEO Pro at $2,500 a month for the AI visibility layer that's quietly becoming the most important channel in local search." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@300;400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F1EA;
+    --cream-card: #FAF7F0;
+    --ink: #1A1A1A;
+    --ink-soft: #4a4a4a;
+    --yellow: #D4FF3F;
+    --coral: #F5C9C0;
+    --coral-soft: #F9DDD6;
+    --border: rgba(26, 26, 26, 0.08);
+    --border-strong: rgba(26, 26, 26, 0.14);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  /* Top bar */
+  .topbar {
+    background: var(--ink);
+    color: #fff;
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* Nav */
+  .nav {
+    padding: 24px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+  }
+  .nav-links a {
+    position: relative;
+    padding: 4px 0;
+    transition: opacity .2s;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 0; height: 1px;
+    background: var(--ink);
+    transition: width .25s ease;
+  }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-links a.active::after { width: 100%; }
+
+  /* Gradient blurs */
+  .gradient-blur {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.75;
+    z-index: 0;
+  }
+  .hero-blur {
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 600px;
+    background: radial-gradient(ellipse at center,
+      rgba(255, 180, 140, 0.7) 0%,
+      rgba(255, 200, 180, 0.5) 30%,
+      rgba(245, 201, 192, 0.35) 55%,
+      transparent 80%);
+  }
+  .pro-blur {
+    top: 0;
+    right: -10%;
+    width: 800px;
+    height: 600px;
+    background: radial-gradient(ellipse at center,
+      rgba(255, 180, 140, 0.45) 0%,
+      rgba(245, 201, 192, 0.3) 35%,
+      transparent 75%);
+    opacity: 0.6;
+  }
+  .final-blur {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1100px;
+    height: 650px;
+    background: radial-gradient(ellipse at center,
+      rgba(255, 180, 140, 0.75) 0%,
+      rgba(245, 201, 192, 0.55) 35%,
+      rgba(255, 220, 200, 0.35) 60%,
+      transparent 80%);
+  }
+
+  /* Hero */
+  .service-hero {
+    position: relative;
+    text-align: center;
+    padding: 80px 24px 70px;
+    overflow: hidden;
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .hero-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+  }
+  .service-hero h1 {
+    font-size: clamp(40px, 6vw, 84px);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    margin-bottom: 28px;
+  }
+  .service-hero .hero-sub {
+    font-size: 15px;
+    color: var(--ink-soft);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.75;
+  }
+
+  /* CTA button */
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--yellow);
+    color: var(--ink);
+    padding: 16px 32px;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease;
+    box-shadow: 0 6px 20px rgba(212, 255, 63, 0.25);
+  }
+  .cta:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(212, 255, 63, 0.32); }
+  .cta .dot {
+    width: 8px; height: 8px;
+    background: var(--ink);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  /* Plan section */
+  .plan-section {
+    padding: 100px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .plan-section.pro { background: var(--cream-card); }
+  .plan-header {
+    max-width: 820px;
+    margin: 0 auto 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .plan-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 22px;
+  }
+  .plan-tag::before {
+    content: "";
+    width: 8px; height: 8px;
+    background: var(--yellow);
+    border-radius: 50%;
+  }
+  .plan-name {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(42px, 5.8vw, 76px);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+  .plan-name .price {
+    font-family: 'Fraunces', serif;
+    font-size: 0.45em;
+    font-weight: 400;
+    color: var(--ink-soft);
+    letter-spacing: -0.02em;
+    display: block;
+    margin-top: 14px;
+  }
+  .plan-tagline {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink);
+    max-width: 600px;
+    margin: 26px 0 32px;
+  }
+
+  /* Plan features */
+  .plan-features {
+    max-width: 820px;
+    margin: 50px auto 0;
+    position: relative;
+    z-index: 1;
+  }
+  .feature {
+    padding: 36px 0;
+    border-top: 1px solid var(--border);
+  }
+  .feature:last-child { border-bottom: 1px solid var(--border); }
+  .plan-section.pro .feature { border-color: rgba(26,26,26,0.12); }
+  .feature h3 {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    line-height: 1.15;
+  }
+  .feature p {
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--ink-soft);
+    max-width: 720px;
+  }
+
+  /* Free website section */
+  .free-site-section {
+    padding: 90px 24px;
+  }
+  .free-site-inner {
+    max-width: 740px;
+    margin: 0 auto;
+  }
+  .free-site-inner h2 {
+    font-size: clamp(32px, 4.6vw, 52px);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    margin-bottom: 30px;
+    line-height: 1.1;
+  }
+  .free-site-inner p {
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+
+  /* What we don't do (dark section) */
+  .dont-do-section {
+    padding: 100px 24px;
+    background: var(--ink);
+    color: #fff;
+  }
+  .dont-do-inner {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .dont-do-inner h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(34px, 5vw, 56px);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    color: #fff;
+    margin-bottom: 40px;
+    line-height: 1.1;
+  }
+  .dont-do-list p {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(20px, 2.4vw, 26px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  .dont-do-foot {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.85;
+  }
+  .dont-do-foot strong { color: #fff; font-weight: 500; }
+
+  /* How we work */
+  .how-section {
+    padding: 100px 24px;
+  }
+  .how-head {
+    max-width: 820px;
+    margin: 0 auto 60px;
+  }
+  .how-head h2 {
+    font-size: clamp(34px, 5vw, 56px);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .how-list {
+    max-width: 920px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .how-step {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 40px;
+    padding: 44px 0;
+    border-top: 1px solid var(--border);
+  }
+  .how-step:last-child { border-bottom: 1px solid var(--border); }
+  .how-phase {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding-top: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .how-phase::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--yellow);
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+  .how-step h3 {
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    line-height: 1.15;
+  }
+  .how-step p {
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--ink-soft);
+    max-width: 700px;
+  }
+
+  /* Final CTA */
+  .final-cta {
+    position: relative;
+    text-align: center;
+    padding: 110px 24px;
+    overflow: hidden;
+  }
+  .final-cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .final-cta h2 {
+    font-size: clamp(38px, 5.6vw, 68px);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    margin-bottom: 26px;
+    line-height: 1.05;
+  }
+  .final-cta p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto 36px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 80px 24px 60px;
+    border-top: 1px solid var(--border);
+    background: var(--cream);
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 72px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    margin-bottom: 50px;
+  }
+  .footer-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    font-size: 12px;
+    color: var(--ink-soft);
+    font-family: 'JetBrains Mono', monospace;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+  }
+  .footer-center {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .footer-center a:hover { color: var(--ink); }
+  .footer-right { text-align: right; }
+  .footer-right a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .footer-right a:hover { color: var(--ink); }
+
+  /* Reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .9s ease, transform .9s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .nav-links { gap: 20px; font-size: 12px; }
+    .how-step { grid-template-columns: 1fr; gap: 14px; }
+    .how-phase { padding-top: 0; }
+    .service-hero { padding: 60px 20px 50px; }
+    .plan-section, .free-site-section, .dont-do-section, .how-section { padding: 70px 20px; }
+    .final-cta { padding: 80px 20px; }
+    .footer-row { grid-template-columns: 1fr; gap: 20px; text-align: center; }
+    .footer-right { text-align: center; }
+    .footer-logo { font-size: 48px; }
+  }
+
+  @media (max-width: 560px) {
+    .nav { padding: 18px 20px; }
+    .logo { font-size: 22px; }
+    .nav-links { gap: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">Services</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <a href="index.html" class="logo">Foundbly</a>
+  <div class="nav-links">
+    <a href="services.html" class="active">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="service-hero">
+  <div class="gradient-blur hero-blur"></div>
+  <div class="hero-inner">
+    <div class="hero-kicker">Services</div>
+    <h1>We do two things. We do them seriously.</h1>
+    <p class="hero-sub">Pick the plan that fits where your business is right now. You can move up later. Most clients do.</p>
+  </div>
+</section>
+
+<!-- SEO Lite -->
+<section class="plan-section" id="lite">
+  <div class="plan-header reveal">
+    <div class="plan-tag">SEO Lite / The foundation</div>
+    <h2 class="plan-name">SEO Lite <span class="price">$1,500 / month</span></h2>
+    <p class="plan-tagline">For service businesses that want to stop being invisible on Google and start getting found.</p>
+    <a href="https://calendly.com/samuelodili12/foundbly-strategy-call" target="_blank" rel="noopener" class="cta">Book a strategy call <span class="dot"></span></a>
+  </div>
+  <div class="plan-features">
+    <div class="feature reveal">
+      <h3>Google Business Profile</h3>
+      <p>Set up if you don't have one. Audited and rebuilt if it's a mess. Ongoing optimization including weekly posts, photo updates, review response strategy, Q&amp;A management, and category fine-tuning. Most local agencies skip this work because it's tedious. Tedious is where the rankings live.</p>
+    </div>
+    <div class="feature reveal">
+      <h3>On-page SEO</h3>
+      <p>Title tags, meta descriptions, header structure, internal linking, image optimization, page speed, mobile rendering. We audit every page on your site and fix what's broken before we add anything new. You can't rank a site with broken plumbing.</p>
+    </div>
+    <div class="feature reveal">
+      <h3>Two blog posts per month</h3>
+      <p>SEO-built, written for humans, structured for Google. Each post targets a specific keyword cluster your customers search. We track which posts pull traffic and double down on what works. No fluff, no AI slop, no 2,000 words of nothing.</p>
+    </div>
+    <div class="feature reveal">
+      <h3>Schema markup</h3>
+      <p>LocalBusiness, Service, FAQ, Review, and Article schema implemented across your site. This is the layer that tells Google exactly what your business is and where it serves. Most sites have it wrong or missing entirely.</p>
+    </div>
+    <div class="feature reveal">
+      <h3>Monthly reporting</h3>
+      <p>Plain English. Here's what we did. Here's what moved. Here's what we're doing next month. No 40-page PDFs nobody reads.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SEO Pro -->
+<section class="plan-section pro" id="pro">
+  <div class="gradient-blur pro-blur"></div>
+  <div class="plan-header reveal">
+    <div class="plan-tag">SEO Pro / Most popular</div>
+    <h2 class="plan-name">SEO Pro <span class="price">$2,500 / month</span></h2>
+    <p class="plan-tagline">Everything in Lite plus the AI visibility layer that's quietly becoming the most important channel in local search.</p>
+    <a href="https://calendly.com/samuelodili12/foundbly-strategy-call" target="_blank" rel="noopener" class="cta">Book a strategy call <span class="dot"></span></a>
+  </div>
+  <div class="plan-features">
+    <div class="feature reveal">
+      <h3>AI citation engineering</h3>
+      <p>Structured data designed for language models. Entity optimization that makes your business legible to GPT-4, Claude, Gemini, and Perplexity. llms.txt configured to give AI tools a clean, current view of your business. This is the work that gets you pulled into AI answers.</p>
+    </div>
+    <div class="feature reveal">
+      <h3>Topical authority strategy</h3>
+      <p>We map every topic your customers ask AI about, then build content that establishes you as the authority on each one. Done right, this is how you get cited in answers your competitors don't even know exist.</p>
+    </div>
+    <div class="feature reveal">
+      <h3>Four blog posts per month</h3>
+      <p>Twice the volume of Lite, with the same quality bar. Half the posts target Google rankings. The other half target AI citations directly. They look similar on the page. They're built differently underneath.</p>
+    </div>
+    <div class="feature reveal">
+      <h3>Competitor tracking across Google and AI search</h3>
+      <p>We track where your competitors rank, where they're cited by AI, and where the gaps are. Then we move into those gaps before they notice.</p>
+    </div>
+    <div class="feature reveal">
+      <h3>Reporting that includes AI mentions</h3>
+      <p>You'll see your Google rankings and your AI visibility in one place. Most agencies can't show you the second number because they aren't doing the work.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Free website -->
+<section class="free-site-section">
+  <div class="free-site-inner reveal">
+    <h2>What the free website includes.</h2>
+    <p>If you don't have a site, here's what we build you to get started.</p>
+    <p>A custom-designed five-to-seven page site. Home, services, about, contact, and a few service detail pages depending on your business. Mobile-first. Fast. Built on what fits your business best. Schema markup baked in from day one. Connected to Google Business Profile and Google Search Console.</p>
+    <p>The site is yours. Your domain. Your content. Your hosting if you ever leave. We just need it built right so the SEO can work.</p>
+  </div>
+</section>
+
+<!-- What we don't do -->
+<section class="dont-do-section">
+  <div class="dont-do-inner">
+    <h2 class="reveal">What Foundbly doesn't do.</h2>
+    <div class="dont-do-list reveal">
+      <p>We don't run Google Ads.</p>
+      <p>We don't run Facebook Ads.</p>
+      <p>We don't do social media management.</p>
+      <p>We don't do branding or logo design.</p>
+      <p>We don't do email marketing.</p>
+    </div>
+    <p class="dont-do-foot reveal">
+      <strong>We do organic search and AI visibility.</strong> That's the entire business. If you need the other stuff, we'll point you to people we trust who do it well.
+    </p>
+  </div>
+</section>
+
+<!-- How we work -->
+<section class="how-section">
+  <div class="how-head reveal">
+    <h2>How we work.</h2>
+  </div>
+  <div class="how-list">
+    <div class="how-step reveal">
+      <div class="how-phase">Week one</div>
+      <div>
+        <h3>Audit and onboarding.</h3>
+        <p>We pull apart your current site, your Google Business Profile, your competitor positioning, and your AI visibility. You get a written audit and a 30-day plan. No charts you don't read. Just what's broken, what's working, and what's first.</p>
+      </div>
+    </div>
+    <div class="how-step reveal">
+      <div class="how-phase">Weeks two to eight</div>
+      <div>
+        <h3>Foundation work.</h3>
+        <p>Schema goes in. On-page gets fixed. GBP gets set up properly. First batch of content ships. If you're on Pro, AI citation work starts in parallel. This is the part that doesn't feel exciting and changes everything.</p>
+      </div>
+    </div>
+    <div class="how-step reveal">
+      <div class="how-phase">Month three onward</div>
+      <div>
+        <h3>Compounding.</h3>
+        <p>Rankings start moving. AI citations start showing up. Lead flow builds. Each month's content layers on the last month's authority. This is when clients stop asking "is this working" and start asking "can we do more."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <div class="gradient-blur final-blur"></div>
+  <div class="final-cta-inner reveal">
+    <h2>Ready to see if we're a fit?</h2>
+    <p>Book a strategy call. We'll look at your business, tell you whether we can help, and if we can, exactly how we'd start.</p>
+    <a href="https://calendly.com/samuelodili12/foundbly-strategy-call" target="_blank" rel="noopener" class="cta">Book the call <span class="dot"></span></a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Foundbly</div>
+    <div class="footer-row">
+      <div>&copy; Foundbly 2026</div>
+      <div class="footer-center">
+        <a href="index.html#what">What We Do</a>
+        <a href="index.html#portfolio">Portfolio</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="footer-right">
+        <a href="mailto:samuelodili12@gmail.com">&#9993; hello@foundbly.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact - Foundbly</title>
+<meta name="description" content="Two ways to reach Foundbly. Book a 25-minute strategy call or send a message. We answer both within 24 hours." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@300;400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F1EA;
+    --cream-card: #FAF7F0;
+    --ink: #1A1A1A;
+    --ink-soft: #4a4a4a;
+    --yellow: #D4FF3F;
+    --coral: #F5C9C0;
+    --coral-soft: #F9DDD6;
+    --border: rgba(26, 26, 26, 0.08);
+    --border-strong: rgba(26, 26, 26, 0.14);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  /* Top bar */
+  .topbar {
+    background: var(--ink);
+    color: #fff;
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* Nav */
+  .nav {
+    padding: 24px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+  }
+  .nav-links a {
+    position: relative;
+    padding: 4px 0;
+    transition: opacity .2s;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 0; height: 1px;
+    background: var(--ink);
+    transition: width .25s ease;
+  }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-links a.active::after { width: 100%; }
+
+  /* Gradient blurs */
+  .gradient-blur {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.75;
+    z-index: 0;
+  }
+  .hero-blur {
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 600px;
+    background: radial-gradient(ellipse at center,
+      rgba(255, 180, 140, 0.7) 0%,
+      rgba(255, 200, 180, 0.5) 30%,
+      rgba(245, 201, 192, 0.35) 55%,
+      transparent 80%);
+  }
+
+  /* Hero */
+  .contact-hero {
+    position: relative;
+    text-align: center;
+    padding: 80px 24px 60px;
+    overflow: hidden;
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .hero-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+  }
+  .contact-hero h1 {
+    font-size: clamp(40px, 6vw, 84px);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    margin-bottom: 28px;
+  }
+  .contact-hero .hero-sub {
+    font-size: 15px;
+    color: var(--ink-soft);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.75;
+  }
+
+  /* CTA */
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--yellow);
+    color: var(--ink);
+    padding: 16px 32px;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease;
+    box-shadow: 0 6px 20px rgba(212, 255, 63, 0.25);
+  }
+  .cta:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(212, 255, 63, 0.32); }
+  .cta .dot {
+    width: 8px; height: 8px;
+    background: var(--ink);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  /* Reach section */
+  .reach-section {
+    padding: 70px 24px 90px;
+  }
+  .reach-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .reach-card {
+    background: var(--cream-card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 48px 44px;
+    display: flex;
+    flex-direction: column;
+  }
+  .label-tag {
+    display: inline-block;
+    border: 1px solid var(--border-strong);
+    color: var(--ink);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 22px;
+    font-family: 'JetBrains Mono', monospace;
+    align-self: flex-start;
+  }
+  .reach-card h2 {
+    font-size: clamp(28px, 3.4vw, 38px);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    margin-bottom: 18px;
+    line-height: 1.15;
+  }
+  .reach-card p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+  }
+  .reach-card .cta-row {
+    margin-top: auto;
+    padding-top: 14px;
+  }
+
+  /* Form */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 24px;
+  }
+  .field label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+  .field input,
+  .field textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-strong);
+    padding: 10px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: var(--ink);
+    resize: none;
+    outline: none;
+    transition: border-color .2s;
+  }
+  .field input:focus,
+  .field textarea:focus { border-color: var(--ink); }
+  .field textarea { min-height: 90px; line-height: 1.6; }
+  .form-status {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: -6px;
+    min-height: 18px;
+  }
+  .form-status.ok { color: var(--ink); }
+
+  /* Expect timeline */
+  .expect-section {
+    padding: 100px 24px;
+  }
+  .expect-head {
+    max-width: 820px;
+    margin: 0 auto 60px;
+  }
+  .expect-head h2 {
+    font-size: clamp(34px, 5vw, 56px);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .expect-list {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .expect-step {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 40px;
+    padding: 44px 0;
+    border-top: 1px solid var(--border);
+  }
+  .expect-step:last-child { border-bottom: 1px solid var(--border); }
+  .expect-phase {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding-top: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .expect-phase::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--yellow);
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+  .expect-step h3 {
+    font-size: clamp(22px, 2.6vw, 28px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+  .expect-step p {
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--ink-soft);
+    max-width: 700px;
+  }
+
+  /* Who shouldn't book (dark) */
+  .filter-section {
+    padding: 100px 24px;
+    background: var(--ink);
+    color: #fff;
+  }
+  .filter-inner {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .filter-inner h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(34px, 5vw, 56px);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    color: #fff;
+    margin-bottom: 14px;
+    line-height: 1.1;
+  }
+  .filter-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 36px;
+  }
+  .filter-list p {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(20px, 2.4vw, 26px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  .filter-fit {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    font-family: 'Fraunces', serif;
+    font-size: clamp(20px, 2.4vw, 26px);
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    color: #fff;
+    font-style: italic;
+  }
+
+  /* Email block */
+  .email-section {
+    padding: 80px 24px;
+    text-align: center;
+  }
+  .email-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+  .email-link {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(28px, 4.6vw, 56px);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 6px;
+    transition: opacity .2s;
+  }
+  .email-link:hover { opacity: 0.7; }
+
+  /* Footer */
+  .footer {
+    padding: 80px 24px 60px;
+    border-top: 1px solid var(--border);
+    background: var(--cream);
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 72px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    margin-bottom: 50px;
+  }
+  .footer-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    font-size: 12px;
+    color: var(--ink-soft);
+    font-family: 'JetBrains Mono', monospace;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+  }
+  .footer-center {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .footer-center a:hover { color: var(--ink); }
+  .footer-right { text-align: right; }
+  .footer-right a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .footer-right a:hover { color: var(--ink); }
+
+  /* Reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .9s ease, transform .9s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .nav-links { gap: 18px; font-size: 12px; }
+    .reach-grid { grid-template-columns: 1fr; }
+    .expect-step { grid-template-columns: 1fr; gap: 14px; }
+    .expect-phase { padding-top: 0; }
+    .contact-hero { padding: 60px 20px 50px; }
+    .reach-section { padding: 50px 20px 70px; }
+    .expect-section, .filter-section { padding: 70px 20px; }
+    .reach-card { padding: 36px 28px; }
+    .footer-row { grid-template-columns: 1fr; gap: 20px; text-align: center; }
+    .footer-right { text-align: center; }
+    .footer-logo { font-size: 48px; }
+  }
+
+  @media (max-width: 560px) {
+    .nav { padding: 18px 20px; }
+    .logo { font-size: 22px; }
+    .nav-links { gap: 12px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">Contact</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <a href="index.html" class="logo">Foundbly</a>
+  <div class="nav-links">
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="active">Contact</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="contact-hero">
+  <div class="gradient-blur hero-blur"></div>
+  <div class="hero-inner">
+    <div class="hero-kicker">Contact</div>
+    <h1>Two ways to reach us.</h1>
+    <p class="hero-sub">Pick whichever feels easier. We answer both within 24 hours.</p>
+  </div>
+</section>
+
+<!-- Reach options -->
+<section class="reach-section">
+  <div class="reach-grid">
+    <div class="reach-card reveal">
+      <span class="label-tag">Option 01</span>
+      <h2>Book a strategy call.</h2>
+      <p>Twenty-five minutes. We'll look at your site, your local search position, and where AI is sending leads in your niche right now. If we can help, we'll tell you how. If we can't, we'll tell you that too.</p>
+      <p>No pitch deck. No 90-minute "discovery." Just a real conversation about whether this works for your business.</p>
+      <div class="cta-row">
+        <a href="https://calendly.com/samuelodili12/foundbly-strategy-call" target="_blank" rel="noopener" class="cta">Pick a time <span class="dot"></span></a>
+      </div>
+    </div>
+
+    <div class="reach-card reveal">
+      <span class="label-tag">Option 02</span>
+      <h2>Send a message.</h2>
+      <p>Prefer email? Drop us a note. We read everything and reply within a day.</p>
+      <!--
+        FORM HANDLING:
+        Currently uses a JS-based mailto fallback (opens user's default mail client).
+        Replace with Formspree, Netlify Forms, or your own backend before launch.
+        Formspree: change <form> action to https://formspree.io/f/YOUR_ID and remove the JS submit handler.
+        Netlify: add `data-netlify="true"` to the form and rely on Netlify's built-in handling.
+      -->
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="field">
+          <label for="business">Business name</label>
+          <input type="text" id="business" name="business" required />
+        </div>
+        <div class="field">
+          <label for="website">Website (if you have one)</label>
+          <input type="text" id="website" name="website" />
+        </div>
+        <div class="field">
+          <label for="issue">What's your biggest issue with getting found right now?</label>
+          <textarea id="issue" name="issue" required></textarea>
+        </div>
+        <div class="form-status" id="formStatus"></div>
+        <button type="submit" class="cta">Send <span class="dot"></span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- What to expect -->
+<section class="expect-section">
+  <div class="expect-head reveal">
+    <h2>What to expect after you reach out.</h2>
+  </div>
+  <div class="expect-list">
+    <div class="expect-step reveal">
+      <div class="expect-phase">Within 24 hours</div>
+      <div>
+        <h3>You hear from us.</h3>
+        <p>Either a confirmation of your call time, or a reply to your email with a short read on whether we're a fit.</p>
+      </div>
+    </div>
+    <div class="expect-step reveal">
+      <div class="expect-phase">On the call</div>
+      <div>
+        <h3>We come prepared.</h3>
+        <p>We'll have already looked at your site, your GBP, your top competitors, and your current AI visibility. You don't have to explain your business to us first.</p>
+      </div>
+    </div>
+    <div class="expect-step reveal">
+      <div class="expect-phase">After the call</div>
+      <div>
+        <h3>A clear yes or no.</h3>
+        <p>If we're a fit, you get a one-page proposal. If we're not, you get a clear no and a recommendation for someone who might be better suited. No follow-up sequences. No drip campaigns. We don't chase.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Who shouldn't book -->
+<section class="filter-section">
+  <div class="filter-inner">
+    <h2 class="reveal">Who shouldn't book a call.</h2>
+    <p class="filter-sub reveal">We'll save you the time.</p>
+    <div class="filter-list reveal">
+      <p>If you're looking for $300 a month SEO, we're not it.</p>
+      <p>If you want guaranteed page-one rankings in two weeks, we're not it.</p>
+    </div>
+    <p class="filter-fit reveal">If you're a service business, your customers are worth real money, and you're tired of watching competitors get all the inbound calls, that's exactly who we're built for.</p>
+  </div>
+</section>
+
+<!-- Email -->
+<section class="email-section">
+  <div class="email-label">Other ways to find us</div>
+  <a href="mailto:samuelodili12@gmail.com" class="email-link">hello@foundbly.com</a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Foundbly</div>
+    <div class="footer-row">
+      <div>&copy; Foundbly 2026</div>
+      <div class="footer-center">
+        <a href="index.html#what">What We Do</a>
+        <a href="index.html#portfolio">Portfolio</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="footer-right">
+        <a href="mailto:samuelodili12@gmail.com">&#9993; hello@foundbly.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Contact form: mailto fallback. Replace with real backend (Formspree / Netlify) before launch.
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = form.name.value.trim();
+    const business = form.business.value.trim();
+    const website = form.website.value.trim();
+    const issue = form.issue.value.trim();
+
+    if (!name || !business || !issue) {
+      status.textContent = 'Fill in name, business, and what your biggest issue is.';
+      status.classList.remove('ok');
+      return;
+    }
+
+    const subject = `New inquiry from ${name} (${business})`;
+    const body =
+      `Name: ${name}\n` +
+      `Business: ${business}\n` +
+      `Website: ${website || '(none)'}\n\n` +
+      `Biggest issue with getting found:\n${issue}`;
+
+    const href = `mailto:samuelodili12@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = href;
+
+    status.textContent = "Opening your email client. If nothing happens, send us a note at hello@foundbly.com.";
+    status.classList.add('ok');
+  });
+</script>
+
+</body>
+</html>
